@@ -1,0 +1,67 @@
+<section class="container py-4">
+  <div class="mb-4 text-center">
+    <h2 class="fw-bold mb-2">All Products</h2>
+    <p class="text-muted mb-0">Browse pharmacy products and essentials.</p>
+  </div>
+
+  <div class="mb-4">
+    <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+      <button
+        class="btn d-flex align-items-center gap-2 px-4 py-2"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#filterArea"
+        style="border:1px solid #dfe5e1; background:#a5d7fa ; color:#000000;">
+        <i class="bi bi-funnel"></i> FILTER & SORT
+      </button>
+
+      <p class="text-muted mb-0">Showing {{filteredProducts.length || products.length}} products</p>
+    </div>
+
+    <div class="collapse mt-3" id="filterArea">
+      <div class="bg-white rounded-4 shadow-sm p-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-12 col-lg-4">
+          <label class="form-label fw-semibold">Search</label>
+          <input type="text" class="form-control" placeholder="Search by name or category" ng-model="productSearch">
+          </div>
+          <div class="col-12 col-lg-4">
+            <label class="form-label fw-semibold">Category</label>
+            <select class="form-select" ng-model="selectedCategory">
+              <option ng-repeat="category in categories" value="{{category}}">
+                {{category}}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-12 col-lg-4">
+            <label class="form-label fw-semibold">Sort By</label>
+            <select class="form-select" ng-model="sortOption">
+              <option value="name">Name</option>
+              <option value="price">Price: Low to High</option>
+              <option value="-price">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex"
+         ng-repeat="product in filteredProducts = (products | filter:productSearch | filter:filterByCategory | orderBy:sortOption)">
+      <div class="bg-white rounded-4 shadow-sm p-3 h-100 d-flex flex-column w-100">
+          <a href="#!/product/{{product.id}}" class="text-decoration-none text-dark d-block text-center">
+            <img ng-src="{{product.img}}" alt="{{product.name}}" class="img-fluid rounded-4 mb-3 w-100" style="height:220px; object-fit:contain;">
+            <h5 class="fw-semibold mb-2" style="min-height:72px;">{{product.name}}</h5>
+            <p class="text-muted mb-2">{{product.category}}</p>
+            <p class="fw-bold mb-3">{{product.price}} EGP</p>
+          </a>
+        <button ng-click="addToCart(product)" class="btn text-white rounded-pill px-4 mx-auto align-self-start" style="background-color:#2ead63;">
+        Add to Cart
+        </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

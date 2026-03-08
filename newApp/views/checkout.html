@@ -1,0 +1,48 @@
+<section class="container py-5">
+  <h2 class="mb-4">Checkout</h2>
+
+  <div class="row g-4">
+
+    <div class="col-lg-7">
+      <div class="card border-0 shadow-sm p-4">
+        <h5 class="mb-3">Your Information</h5>
+
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control mb-3" ng-model="customer.name">
+
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control mb-3" ng-model="customer.phoneNumber">
+
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control mb-3" ng-model="customer.email">
+
+        <label class="form-label">Address</label>
+        <textarea class="form-control" rows="3" ng-model="customer.address"></textarea>
+      </div>
+    </div>
+
+
+    <div class="col-lg-5">
+      <div class="card border-0 shadow-sm p-4">
+        <h5 class="mb-3">Order Summary</h5>
+
+        <div ng-repeat="item in cartItems" class="d-flex justify-content-between mb-2">
+          <span>{{item.name}} × {{item.quantity}}</span>
+          <span>{{item.price * item.quantity}} LE</span>
+        </div>
+
+        <hr>
+
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total</span>
+          <span>{{subtotal}} LE</span>
+        </div>
+
+        <button class="btn btn-dark w-100" ng-click="submitOrder()">
+          Place Order
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,38 @@
+:root{
+    --primary: #2ead63;
+    --secondary:#4fb6ff ;
+}
+
+.navbar .nav-link{
+    color: #222;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover{
+    color: var(--primary);
+}
+
+.search-input{
+    border-radius: 30px;
+    padding: 12px 16px;
+}
+
+.search-btn{
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 52px;
+    height: 52px;
+}
+
+.search-btn:hover{
+    background-color: #269454;
+    color: white;
+}
+
+.logo-img{
+    height: 50px;
+    width: auto;
+    display: block;
+}
