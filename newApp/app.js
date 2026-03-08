@@ -7,6 +7,9 @@ app.config(function($routeProvider){
         templateUrl:'views/shop.html',
         controller:'shopController'
     })
+    .when('/aboutus',{
+        templateUrl:'views/aboutus.html',
+    })
     .when('/product/:id',{
         templateUrl:'views/product.html',
         controller:'ProductController'

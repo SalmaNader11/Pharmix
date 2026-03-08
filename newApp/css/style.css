@@ -36,3 +36,7 @@
     width: auto;
     display: block;
 }
+.about-page{
+    background-color: #f5f6f8;
+    min-height: 100vh;
+}
